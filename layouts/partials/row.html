@@ -34,7 +34,8 @@
       <div class = "row homepage_episode_row">
         <div class = "col">
           <a href="{{ .Permalink }}" class = "row_latest_episode_title"><h2>{{ .Title }}</h2></a>
-          <small>Posted on {{ dateFormat "Monday, Jan 2, 2006" .Date }} youtube = {{($.Scratch.Get "youtube")}} and {{ .Params.youtube }}</small>
+          <small>Posted on {{ dateFormat "Monday, Jan 2, 2006" .Date }}</small>
+          <!-- youtube = {{($.Scratch.Get "youtube")}} and {{ .Params.youtube }} youtube = {{($.Scratch.Get "youtube")}} and {{ .Params.youtube }}-->
         </div>
       </div>
       <div class = "row homepage_episode_row">
@@ -239,7 +240,7 @@
     		<a href="{{ $paginator.Prev.URL }}" class="page-link"> &laquo; </a>
     	</li>
   {{ end }}
-  
+
   <!-- page # buttons -->
   {{ range $pag.Pagers }}
     {{ $cur := .PageNumber }}
@@ -250,14 +251,14 @@
       <li class="disabled page-item"><a name="" class="page-link hidden-md-down">&hellip;</a></li>
     {{ end }}
   {{ end }}
-  
+
   <!-- next page button -->
   {{- with $paginator.HasNext -}}
   <li class="page-item">
     <a href="{{ $paginator.Next.URL }}" class="page-link"> &raquo; </a>
   </li>
   {{ end }}
-  
+
   <!-- last page button -->
   {{ if lt $paginator.PageNumber (sub $paginator.TotalPages 1) }}
     {{- with $paginator.Last -}}
